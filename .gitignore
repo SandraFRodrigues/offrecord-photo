@@ -3,6 +3,18 @@
 bin/
 obj/
 
-# User-specific files
+# .NET
+[Bb]in/
+[Oo]bj/
+
+# User files
 *.user
 *.suo
+*.rsuser
+
+# OS / tools
+.DS_Store
+Thumbs.db
+
+# Logs / temp
+*.log
