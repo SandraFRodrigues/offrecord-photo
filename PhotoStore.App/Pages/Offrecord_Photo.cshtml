@@ -1,0 +1,63 @@
+﻿@page
+@model PhotoStore.App.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero">
+    <div>
+        <h1>Offrecord_Photo</h1>
+        <p>Photography services and client galleries.</p>
+        <div class="hero-actions">
+            <a class="btn primary" asp-page="/Portfolio/Index">View Portfolio</a>
+            <a class="btn" asp-page="/Client/Login">Client Login</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Weddings</h3>
+            <p>Full day coverage, highlights, curated galleries.</p>
+        </div>
+        <div class="service-card">
+            <h3>Portrait Sessions</h3>
+            <p>Studio or outdoor sessions with retouched selects.</p>
+        </div>
+        <div class="service-card">
+            <h3>Events</h3>
+            <p>Corporate and private events with fast delivery.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="section-header">
+        <h2>Featured galleries</h2>
+        <a asp-page="/Portfolio/Index">See all →</a>
+    </div>
+
+    <div class="grid">
+        @foreach (var album in Model.FeaturedAlbums)
+        {
+            <a class="card" asp-page="/Portfolio/Album" asp-route-id="@album.Id">
+                <img src="@Url.Content(album.CoverUrl)" alt="@album.Title" class="card-img" />
+                <div class="card-body">
+                    <div class="card-title">@album.Title</div>
+                    <div class="card-meta">
+                        @if (!string.IsNullOrWhiteSpace(album.Category))
+                        {
+                            <span>@album.Category</span>
+                        }
+                        @if (album.EventDate is not null)
+                        {
+                            <span> • @album.EventDate</span>
+                        }
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</section>

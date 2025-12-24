@@ -1,0 +1,51 @@
+﻿@page
+@model PhotoStore.App.Pages.Client.LoginModel
+@{
+    ViewData["Title"] = "Client Access";
+}
+
+<section class="container of-section">
+    <div class="of-login-card mx-auto">
+        <h1 class="mb-2">Client Access</h1>
+
+        <p style="opacity:.8;">
+            Access to private galleries is available by invitation only.
+        </p>
+
+        <hr class="border-secondary" />
+
+        <form method="post">
+            <div class="of-field">
+                <label class="form-label">Email</label>
+                <input type="email"
+                       class="form-control"
+                       placeholder="you@email.com"
+                       disabled />
+            </div>
+
+            <div class="of-field">
+                <label class="form-label">Password</label>
+                <input type="password"
+                       class="form-control"
+                       placeholder="••••••••"
+                       disabled />
+            </div>
+
+            <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-dark" type="button" disabled>
+                    Sign in
+                </button>
+
+                <button class="btn btn-outline-secondary" type="button" disabled>
+                    Sign in with Passkey
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-4 text-center" style="opacity:.7;">
+            <small>
+                If you received a private link or gallery code, please use the provided access.
+            </small>
+        </div>
+    </div>
+</section>

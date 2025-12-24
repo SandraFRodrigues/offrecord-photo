@@ -1,0 +1,80 @@
+﻿@page
+@model PhotoStore.App.Pages.IndexModel
+@{
+    ViewData["Title"] = "Offrecord_Photo";
+}
+
+<section class="of-hero">
+    <div class="container">
+        <h1 class="of-hero-title">Offrecord_Photo</h1>
+        <img src="~/images/logo.png"
+             alt="Offrecord Photo"
+             class="of-hero-logo" />
+
+        <p class="of-hero-subtitle">
+            Galerias privadas. Momentos reais. 
+        </p>
+
+        <div class="of-hero-actions">
+            <a class="btn btn-light btn-lg" asp-page="/Portfolio/Index">Ver Portfólio</a>
+            <a class="btn btn-outline-light btn-lg" asp-page="/Client/Login">Área do Cliente</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="container of-section">
+    <h2 class="of-section-title">Serviços</h2>
+
+    <div class="of-services-grid">
+        <div class="of-service-card">
+            <h3>Casamentos</h3>
+            <p style="opacity:.8;">
+                Cobertura completa, seleção curada e galeria privada para os convidados.
+            </p>
+        </div>
+
+        <div class="of-service-card">
+            <h3>Retratos</h3>
+            <p style="opacity:.8;">
+                Sessões em estúdio ou exterior, com edição e entrega organizada por galeria.
+            </p>
+        </div>
+
+        <div class="of-service-card">
+            <h3>Eventos</h3>
+            <p style="opacity:.8;">
+                Partilha segura, acesso privado para cada cliente.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="container of-section" style="margin-bottom: 80px;">
+    <div class="of-section-header">
+        <h2 class="of-section-title mb-0">Galerias em destaque</h2>
+        <a asp-page="/Portfolio/Index" class="link-light" style="text-decoration:none;">Ver todas →</a>
+    </div>
+
+    <div class="of-grid mt-3">
+        @foreach (var album in Model.FeaturedAlbums)
+        {
+            <a class="of-card" asp-page="/Portfolio/Album" asp-route-id="@album.Id">
+                <img class="of-card-img" src="@Url.Content(album.CoverUrl)" alt="@album.Title" />
+                <div class="of-card-body">
+                    <div class="of-card-title">@album.Title</div>
+                    <div class="of-card-meta">
+                        @if (!string.IsNullOrWhiteSpace(album.Category))
+                        {
+                            <span>@album.Category</span>
+                        }
+                        @if (album.EventDate is not null)
+                        {
+                            <span> • @album.EventDate</span>
+                        }
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</section>

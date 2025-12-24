@@ -1,0 +1,33 @@
+﻿@page
+@model PhotoStore.App.Pages.Portfolio.AlbumModel
+@{
+    ViewData["Title"] = Model.Album?.Title ?? "Album";
+}
+
+<p>
+    <a asp-page="/Portfolio/Index">← Back to portfolio</a>
+</p>
+
+<h1>@Model.Album!.Title</h1>
+
+<div class="of-grid">
+    @foreach (var photo in Model.Photos)
+    {
+        <div class="of-photo-card">
+            <img src="@Url.Content(photo.Url)" alt="Photo" class="of-card-img" />
+
+            <div class="of-overlay @(photo.IsLocked ? "" : "open")">
+                @if (photo.IsLocked)
+                {
+                    <span>Locked • @photo.Price€</span>
+                    <button class="btn btn-dark btn-sm" type="button">Add to cart</button>
+                }
+                else
+                {
+                    <span>Preview</span>
+                    <button class="btn btn-outline-light btn-sm" type="button">View</button>
+                }
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model PhotoStore.App.Pages.Portfolio.IndexModel
+@{
+    ViewData["Title"] = "Portfolio";
+}
+
+<h1>Portfolio</h1>
+
+<div class="of-grid">
+    @foreach (var album in Model.Items)
+    {
+        <a class="of-card" asp-page="/Portfolio/Album" asp-route-id="@album.Id">
+            <img src="@Url.Content(album.CoverUrl)" alt="@album.Title" class="of-card-img" />
+
+            <div class="of-card-body">
+                <div class="of-card-title">@album.Title</div>
+
+                <div class="of-card-meta">
+                    @if (!string.IsNullOrWhiteSpace(album.Category))
+                    {
+                        <span>@album.Category</span>
+                    }
+                    @if (album.EventDate is not null)
+                    {
+                        <span> • @album.EventDate</span>
+                    }
+                </div>
+            </div>
+        </a>
+    }
+</div>
