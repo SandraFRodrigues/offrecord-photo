@@ -5,7 +5,7 @@ namespace PhotoStore.Infrastructure.Repositories;
 
 public sealed class InMemoryAlbumRepository : IAlbumRepository
 {
-    // IDs fixos para navegar sem stress
+    // IDs fixos 
     public static readonly Guid WeddingAlbumId = Guid.Parse("11111111-1111-1111-1111-111111111111");
     public static readonly Guid PortraitAlbumId = Guid.Parse("22222222-2222-2222-2222-222222222222");
 

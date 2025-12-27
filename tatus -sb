@@ -1,0 +1,125 @@
+[1mdiff --git a/PhotoStore.App/wwwroot/css/site.css b/PhotoStore.App/wwwroot/css/site.css[m
+[1mindex 12c6a0f..7a1a55b 100644[m
+[1m--- a/PhotoStore.App/wwwroot/css/site.css[m
+[1m+++ b/PhotoStore.App/wwwroot/css/site.css[m
+[36m@@ -196,15 +196,15 @@[m [mbody {[m
+ }[m
+ [m
+ .of-brand-logo {[m
+[31m-    width: 34px; /* ajusta se quiseres maior/menor */[m
+[32m+[m[32m    width: 34px;[m[41m [m
+     height: 34px;[m
+     border-radius: 50%;[m
+     border: 2px solid #fff;[m
+[31m-    object-fit: cover; /* faz o "crop" para dentro do círculo */[m
+[32m+[m[32m    object-fit: cover;[m[41m [m
+     display: block;[m
+ }[m
+ .of-hero-logo {[m
+[31m-    max-width: 320px; /* ajusta: 240–360px */[m
+[32m+[m[32m    max-width: 320px;[m
+     width: 100%;[m
+     height: auto;[m
+     margin-bottom: 16px;[m
+[1mdiff --git a/PhotoStore.Core/Class1.cs b/PhotoStore.Core/Class1.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 9081cf1..0000000[m
+[1m--- a/PhotoStore.Core/Class1.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-ï»¿namespace PhotoStore.Core[m
+[31m-{[m
+[31m-    public class Class1[m
+[31m-    {[m
+[31m-[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/PhotoStore.Infrastructure/Class1.cs b/PhotoStore.Infrastructure/Class1.cs[m
+[1mdeleted file mode 100644[m
+[1mindex 63d1d8a..0000000[m
+[1m--- a/PhotoStore.Infrastructure/Class1.cs[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-ï»¿namespace PhotoStore.Infrastructure[m
+[31m-{[m
+[31m-    public class Class1[m
+[31m-    {[m
+[31m-[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/PhotoStore.Infrastructure/Repositories/InMemoryAlbumRepository.cs b/PhotoStore.Infrastructure/Repositories/InMemoryAlbumRepository.cs[m
+[1mindex 5ad4582..ebb8498 100644[m
+[1m--- a/PhotoStore.Infrastructure/Repositories/InMemoryAlbumRepository.cs[m
+[1m+++ b/PhotoStore.Infrastructure/Repositories/InMemoryAlbumRepository.cs[m
+[36m@@ -5,7 +5,7 @@[m [mnamespace PhotoStore.Infrastructure.Repositories;[m
+ [m
+ public sealed class InMemoryAlbumRepository : IAlbumRepository[m
+ {[m
+[31m-    // IDs fixos para navegar sem stress[m
+[32m+[m[32m    // IDs fixos[m[41m [m
+     public static readonly Guid WeddingAlbumId = Guid.Parse("11111111-1111-1111-1111-111111111111");[m
+     public static readonly Guid PortraitAlbumId = Guid.Parse("22222222-2222-2222-2222-222222222222");[m
+ [m
+[1mdiff --git a/PhotoStore.Infrastructure/Repositories/InMemoryPhotoRepository.cs b/PhotoStore.Infrastructure/Repositories/InMemoryPhotoRepository.cs[m
+[1mindex f74549c..6ee90d2 100644[m
+[1m--- a/PhotoStore.Infrastructure/Repositories/InMemoryPhotoRepository.cs[m
+[1m+++ b/PhotoStore.Infrastructure/Repositories/InMemoryPhotoRepository.cs[m
+[36m@@ -12,50 +12,50 @@[m [mpublic sealed class InMemoryPhotoRepository : IPhotoRepository[m
+             Guid.Parse("11111111-1111-1111-1111-111111111111"),[m
+             "/images/photos/wedding1.jpg",[m
+             isLocked: true,[m
+[31m-            price: 5.99m),[m
+[32m+[m[32m            price: 5m),[m
+ [m
+         new Photo(Guid.Parse("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"),[m
+             Guid.Parse("11111111-1111-1111-1111-111111111111"),[m
+             "/images/photos/wedding2.jpg",[m
+             isLocked: true,[m
+[31m-            price: 5.99m),[m
+[32m+[m[32m            price: 5m),[m
+ [m
+         new Photo(Guid.Parse("cccccccc-cccc-cccc-cccc-cccccccccccc"),[m
+             Guid.Parse("11111111-1111-1111-1111-111111111111"),[m
+             "/images/photos/wedding3.jpg",[m
+             isLocked: false,[m
+[31m-            price: 5.99m),[m
+[32m+[m[32m            price: 5m),[m
+ [m
+         new Photo(Guid.Parse("dddddddd-dddd-dddd-dddd-dddddddddddd"),[m
+             Guid.Parse("11111111-1111-1111-1111-111111111111"),[m
+             "/images/photos/wedding4.jpg",[m
+             isLocked: true,[m
+[31m-            price: 5.99m),[m
+[32m+[m[32m            price: 5m),[m
+ [m
+         new Photo(Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"),[m
+             Guid.Parse("11111111-1111-1111-1111-111111111111"),[m
+             "/images/photos/wedding5.jpg",[m
+             isLocked: false,[m
+[31m-            price: 5.99m),[m
+[32m+[m[32m            price: 5m),[m
+ [m
+         // Portrait album photos[m
+         new Photo(Guid.Parse("f1f1f1f1-f1f1-f1f1-f1f1-f1f1f1f1f1f1"),[m
+             Guid.Parse("22222222-2222-2222-2222-222222222222"),[m
+             "/images/photos/portrait1.jpg",[m
+             isLocked: true,[m
+[31m-            price: 4.99m),[m
+[32m+[m[32m            price: 5m),[m
+ [m
+         new Photo(Guid.Parse("f2f2f2f2-f2f2-f2f2-f2f2-f2f2f2f2f2f2"),[m
+             Guid.Parse("22222222-2222-2222-2222-222222222222"),[m
+             "/images/photos/portrait2.jpg",[m
+             isLocked: false,[m
+[31m-            price: 4.99m),[m
+[32m+[m[32m            price: 5m),[m
+ [m
+         new Photo(Guid.Parse("f3f3f3f3-f3f3-f3f3-f3f3-f3f3f3f3f3f3"),[m
+             Guid.Parse("22222222-2222-2222-2222-222222222222"),[m
+             "/images/photos/portrait3.jpg",[m
+             isLocked: true,[m
+[31m-            price: 4.99m),[m
+[32m+[m[32m            price: 5m),[m
+     ];[m
+ [m
+     public Task<IReadOnlyList<Photo>> GetByAlbumAsync(Guid albumId, CancellationToken ct = default)[m
